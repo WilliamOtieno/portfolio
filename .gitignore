@@ -1,0 +1,5 @@
+.idea
+venv
+__pycache__
+core/__pycache__
+portfolio/__pycache__
