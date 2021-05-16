@@ -26,7 +26,6 @@ def contactView(request):
             subject = form.cleaned_data['subject']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
-            messages.success(request, "Thank you for your message.")
             Contact.objects.create(
                 name=name,
                 email=email,
@@ -34,7 +33,8 @@ def contactView(request):
                 message=message
             )
             try:
-                send_mail(subject, message, email, ['jimmywilliamotieno@gmail.com'])
+                send_mail(subject, message, email, [
+                          'jimmywilliamotieno@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('home')
