@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('portfolio/', views.portfolio_details, name='portfolio'),
     path('contact/', views.contactView, name='contact'),
-    path('submit/', views.contactView, name='submit')
+    path('submit/', views.contactView, name='submit'),
+    path('sentry-debug/', views.trigger_error),
 ]
