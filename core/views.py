@@ -10,6 +10,7 @@ from .models import Contact
 def trigger_error(request):
     division_by_zero = 1 / 1
 
+
 def home(request):
     return render(request, 'index.html')
 
@@ -18,7 +19,7 @@ def portfolio_details(request):
     return render(request, 'portfolio-details.html')
 
 
-def contactView(request):
+def contact_view(request):
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -36,7 +37,7 @@ def contactView(request):
             )
             try:
                 send_mail(subject, message, email, [
-                          'jimmywilliamotieno@gmail.com'])
+                    'jimmywilliamotieno@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('home')
